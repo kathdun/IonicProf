@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-title>detail-product</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-card>
+  
+  <ion-card-header>
+    <ion-item  > 
+      <ion-img   src="./assets/images/product2.jpg"></ion-img> 
+  </ion-item>
+    <ion-card-title class="ion-text-center"><ion-label><ion-icon color="success" class="ion-padding-right" name="at"></ion-icon></ion-label>{{product.name}}</ion-card-title>
+    <ion-item>
+      <ion-label> <ion-card-subtitle  class="ion-text-center"> {{product.description}}</ion-card-subtitle> </ion-label>
+    </ion-item>
+  </ion-card-header>
+
+  <ion-card-content>
+  
+    <ion-list>
+      <ion-item>
+        <ion-label>Quantity</ion-label>
+        {{product.qte}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Unit price</ion-label>
+        {{product.pu}}
+      </ion-item>
+    </ion-list>
+    
+  </ion-card-content>
+</ion-card>
+</ion-content>

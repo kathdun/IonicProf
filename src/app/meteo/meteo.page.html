@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>meteo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+    <ion-label>Ville : </ion-label>
+    <ion-input type="text" [(ngModel)]="ville" ></ion-input>
+    <ion-button (click)="loadMeteo()">OK</ion-button>
+    </ion-item>
+
+
+    <ion-card *ngIf="meteos" >
+      <ion-card-header>
+        <ion-card-subtitle>Ville</ion-card-subtitle>
+        <ion-card-title>{{meteos.city.name}}: {{meteos.city.country}}</ion-card-title>
+        <ion-item>
+          <ion-chip color="success">
+            <ion-label color="dark">Lon :</ion-label>
+          </ion-chip>
+          <ion-badge color="secondary"> {{meteos.city.coord.lon}}</ion-badge> 
+          <ion-chip color="success">
+            <ion-label color="dark">Lat :</ion-label>
+          </ion-chip>
+          <ion-badge color="secondary"> {{meteos.city.coord.lat}}</ion-badge>
+
+        </ion-item>
+      </ion-card-header>
+    
+      <ion-card-content>
+          <ion-list >
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col> <ion-icon color="primary"  name="timer"></ion-icon>Date</ion-col>
+                <ion-col >
+                  <ion-card-subtitle>
+                    <ion-icon color="warning" name="sunny-sharp"></ion-icon>Temperature
+                  </ion-card-subtitle> 
+                </ion-col>
+                <ion-col > 
+                  <ion-card-subtitle>
+                    <ion-icon color="dark" name="cloudy"></ion-icon>Pressure
+                </ion-card-subtitle>
+              </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-item *ngFor="let m of list">
+              <ion-grid>
+               
+                <ion-row>
+                  <ion-col><ion-card-subtitle  class="ion-padding-right">{{m.dt_txt}}</ion-card-subtitle></ion-col>
+                  <ion-col>
+                    <ion-card-subtitle class="ion-padding-left">{{((m.main.temp - 32) * 5/9).toFixed(2)}}</ion-card-subtitle>
+                   
+                  </ion-col>
+                  <ion-col>
+                    <ion-card-subtitle> {{m.main.pressure}}</ion-card-subtitle>
+                   
+                  </ion-col>
+                  <!-- <ion-col><ion-card-subtitle><ion-icon name="water"></ion-icon></ion-card-subtitle>{{m.main.humidity}}</ion-col> -->
+                </ion-row>
+              </ion-grid>              
+            </ion-item>
+          </ion-list>
+          <ion-card-subtitle class="ion-text-center" (click)="showMore()">{{showText}}</ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>  
+    
+</ion-content>

@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar  color="danger">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+      <ion-button>
+        <ion-icon slot="icon-only secondary" name="globe"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>GPS</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="globe"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-progress-bar value="0.25" buffer="0.5"></ion-progress-bar> -->
+<!-- <ion-progress-bar type="indeterminate"></ion-progress-bar> -->
+<ion-grid>
+  <ion-row>
+    <ion-col  size="12">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle></ion-card-subtitle>
+          <ion-card-title >Current Location</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+        
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle><ion-icon  color="warning" name="swap-horizontal"></ion-icon></ion-card-subtitle>
+          <ion-card-title>Latitude  <ion-spinner color="warning" name="circles"></ion-spinner></ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{latitude}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle><ion-icon color="success" name="swap-vertical"></ion-icon></ion-card-subtitle>
+          <ion-card-title >Longitude  <ion-spinner  color="success" name="circles" class="ion-padding-left"></ion-spinner></ion-card-title>
+          <!-- Dots -->
+        
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{longitude}}
+          
+        </ion-card-content>
+       
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  <!-- <ion-item></ion-item> -->
+  <!-- <ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar> -->
+  <!-- <ion-item>{{longitude}}</ion-item> -->
+
+  
+  
+  <!-- fab placed in the center of the content with a list on each side -->
+  <ion-fab vertical="bottom" class="ion-padding-bottom ion-margin-bottom  ion-padding-vertical ion-padding-horizontal" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="bottom">
+      <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="start">
+      <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="end">
+      <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
